@@ -136,6 +136,12 @@
 		</span>
 
 		<br><br>
+		<span class="hvr-neon">
+			<span id="countdown"></span>
+		</span>
+
+
+		<br><br>
 		<input id="searchbox" type="search" placeholder="Search..." onkeydown="if (event.keyCode == 13 || event.which == 13) { window.open('http://google.com/search?q=' + encodeURIComponent(document.getElementById('searchbox').value));}" />
 
 	</div>	
@@ -160,6 +166,29 @@
 	    	$('#ascii-progress-bar').append("#"); 
 	    }    
 		}
+	</script>
+
+	<script>
+		// Countdown
+		var countDownDate = new Date("May 25, 2024 00:00:00").getTime();
+
+		function countdDown() {
+		  var now = new Date().getTime();
+		  var distance = Math.abs(countDownDate - now);
+		  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+		  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+		  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+		  + minutes + "m " + seconds + "s ";
+		}
+
+		// Start counting as soon as page loads
+		countdDown();
+
+		// Update the count down every 1 second
+		var x = setInterval(countdDown, 1000);
 	</script>
 	
 	<script>
